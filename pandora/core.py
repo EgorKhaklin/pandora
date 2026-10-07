@@ -67,7 +67,12 @@ def pandora(X, y, rng=None, rounds=200, top=None, rest=None, decay=0.5, check_ev
         r += 1
         T = np.argsort(-score)[:top]
         R = rng.choice(np.setdiff1d(np.arange(d), T), rest, replace=False)
-        score = decay * score + np.abs(basis_pursuit(X, y, np.concatenate([T, R]))[0])
+        wv = basis_pursuit(X, y, np.concatenate([T, R]))[0]
+        if np.count_nonzero(np.abs(wv) > 1e-9 * max(1.0, np.abs(wv).max())) < n:
+            w = certify(X, y, np.abs(wv))  # a sparse vessel is a recovery (THEORY.md, Corollary 2)
+            if w is not None:
+                break
+        score = decay * score + np.abs(wv)
         if r % check_every == 0 or r == rounds:
             w = certify(X, y, score)
     if return_info:

@@ -1,0 +1,310 @@
+[
+ {
+  "matrix": "gaussian",
+  "n": 40,
+  "d": 200,
+  "k": 8,
+  "trials": 100,
+  "L1": 82,
+  "ISD": 98,
+  "OMP (given k)": 32,
+  "CoSaMP (given k)": 72,
+  "Subspace Pursuit (given k)": 65,
+  "IHT (given k)": 48,
+  "Pandora": 99,
+  "ci95": {
+   "L1": [
+    73.3,
+    88.3
+   ],
+   "ISD": [
+    93.0,
+    99.4
+   ],
+   "OMP (given k)": [
+    23.7,
+    41.7
+   ],
+   "CoSaMP (given k)": [
+    62.5,
+    79.9
+   ],
+   "Subspace Pursuit (given k)": [
+    55.3,
+    73.6
+   ],
+   "IHT (given k)": [
+    38.5,
+    57.7
+   ],
+   "Pandora": [
+    94.6,
+    99.8
+   ]
+  }
+ },
+ {
+  "matrix": "gaussian",
+  "n": 40,
+  "d": 200,
+  "k": 10,
+  "trials": 100,
+  "L1": 47,
+  "ISD": 68,
+  "OMP (given k)": 10,
+  "CoSaMP (given k)": 34,
+  "Subspace Pursuit (given k)": 28,
+  "IHT (given k)": 23,
+  "Pandora": 90,
+  "ci95": {
+   "L1": [
+    37.5,
+    56.7
+   ],
+   "ISD": [
+    58.3,
+    76.3
+   ],
+   "OMP (given k)": [
+    5.5,
+    17.4
+   ],
+   "CoSaMP (given k)": [
+    25.5,
+    43.7
+   ],
+   "Subspace Pursuit (given k)": [
+    20.1,
+    37.5
+   ],
+   "IHT (given k)": [
+    15.8,
+    32.2
+   ],
+   "Pandora": [
+    82.6,
+    94.5
+   ]
+  }
+ },
+ {
+  "matrix": "gaussian",
+  "n": 40,
+  "d": 200,
+  "k": 12,
+  "trials": 100,
+  "L1": 13,
+  "ISD": 33,
+  "OMP (given k)": 1,
+  "CoSaMP (given k)": 13,
+  "Subspace Pursuit (given k)": 6,
+  "IHT (given k)": 3,
+  "Pandora": 56,
+  "ci95": {
+   "L1": [
+    7.8,
+    21.0
+   ],
+   "ISD": [
+    24.6,
+    42.7
+   ],
+   "OMP (given k)": [
+    0.2,
+    5.4
+   ],
+   "CoSaMP (given k)": [
+    7.8,
+    21.0
+   ],
+   "Subspace Pursuit (given k)": [
+    2.8,
+    12.5
+   ],
+   "IHT (given k)": [
+    1.0,
+    8.5
+   ],
+   "Pandora": [
+    46.2,
+    65.3
+   ]
+  }
+ },
+ {
+  "matrix": "gaussian",
+  "n": 40,
+  "d": 200,
+  "k": 14,
+  "trials": 100,
+  "L1": 4,
+  "ISD": 8,
+  "OMP (given k)": 0,
+  "CoSaMP (given k)": 1,
+  "Subspace Pursuit (given k)": 2,
+  "IHT (given k)": 0,
+  "Pandora": 21,
+  "ci95": {
+   "L1": [
+    1.6,
+    9.8
+   ],
+   "ISD": [
+    4.1,
+    15.0
+   ],
+   "OMP (given k)": [
+    0,
+    3.7
+   ],
+   "CoSaMP (given k)": [
+    0.2,
+    5.4
+   ],
+   "Subspace Pursuit (given k)": [
+    0.6,
+    7.0
+   ],
+   "IHT (given k)": [
+    0,
+    3.7
+   ],
+   "Pandora": [
+    14.2,
+    30.0
+   ]
+  }
+ },
+ {
+  "matrix": "gaussian",
+  "n": 100,
+  "d": 500,
+  "k": 25,
+  "trials": 100,
+  "L1": 37,
+  "ISD": 70,
+  "OMP (given k)": 0,
+  "CoSaMP (given k)": 26,
+  "Subspace Pursuit (given k)": 26,
+  "IHT (given k)": 14,
+  "Pandora": 76,
+  "ci95": {
+   "L1": [
+    28.2,
+    46.8
+   ],
+   "ISD": [
+    60.4,
+    78.1
+   ],
+   "OMP (given k)": [
+    0,
+    3.7
+   ],
+   "CoSaMP (given k)": [
+    18.4,
+    35.4
+   ],
+   "Subspace Pursuit (given k)": [
+    18.4,
+    35.4
+   ],
+   "IHT (given k)": [
+    8.5,
+    22.1
+   ],
+   "Pandora": [
+    66.8,
+    83.3
+   ]
+  }
+ },
+ {
+  "matrix": "gaussian",
+  "n": 100,
+  "d": 500,
+  "k": 30,
+  "trials": 100,
+  "L1": 4,
+  "ISD": 13,
+  "OMP (given k)": 0,
+  "CoSaMP (given k)": 1,
+  "Subspace Pursuit (given k)": 2,
+  "IHT (given k)": 0,
+  "Pandora": 34,
+  "ci95": {
+   "L1": [
+    1.6,
+    9.8
+   ],
+   "ISD": [
+    7.8,
+    21.0
+   ],
+   "OMP (given k)": [
+    0,
+    3.7
+   ],
+   "CoSaMP (given k)": [
+    0.2,
+    5.4
+   ],
+   "Subspace Pursuit (given k)": [
+    0.6,
+    7.0
+   ],
+   "IHT (given k)": [
+    0,
+    3.7
+   ],
+   "Pandora": [
+    25.5,
+    43.7
+   ]
+  }
+ },
+ {
+  "matrix": "gaussian",
+  "n": 100,
+  "d": 500,
+  "k": 35,
+  "trials": 100,
+  "L1": 0,
+  "ISD": 0,
+  "OMP (given k)": 0,
+  "CoSaMP (given k)": 0,
+  "Subspace Pursuit (given k)": 0,
+  "IHT (given k)": 0,
+  "Pandora": 2,
+  "ci95": {
+   "L1": [
+    0,
+    3.7
+   ],
+   "ISD": [
+    0,
+    3.7
+   ],
+   "OMP (given k)": [
+    0,
+    3.7
+   ],
+   "CoSaMP (given k)": [
+    0,
+    3.7
+   ],
+   "Subspace Pursuit (given k)": [
+    0,
+    3.7
+   ],
+   "IHT (given k)": [
+    0,
+    3.7
+   ],
+   "Pandora": [
+    0.6,
+    7.0
+   ]
+  }
+ }
+]

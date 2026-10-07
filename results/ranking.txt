@@ -1,0 +1,22 @@
+k=10:
+   random                     top20  0/60  top39  0/60  median rank of true columns 101.0
+   correlation |X^T y|        top20  0/60  top39  0/60  median rank of true columns  15.0
+   OMP order                  top20 10/60  top39 10/60  median rank of true columns  14.0
+   L1 magnitude               top20 33/60  top39 33/60  median rank of true columns   5.0
+   reweighted L1 magnitude    top20 34/60  top39 34/60  median rank of true columns   5.0
+   Pandora score              top20 52/60  top39 53/60  median rank of true columns   5.0
+k=12:
+   random                     top20  0/60  top39  0/60  median rank of true columns 104.0
+   correlation |X^T y|        top20  0/60  top39  0/60  median rank of true columns  18.0
+   OMP order                  top20  0/60  top39  0/60  median rank of true columns  64.0
+   L1 magnitude               top20 12/60  top39 12/60  median rank of true columns   7.0
+   reweighted L1 magnitude    top20 12/60  top39 12/60  median rank of true columns   7.0
+   Pandora score              top20 40/60  top39 40/60  median rank of true columns   7.0
+k=14:
+   random                     top20  0/60  top39  0/60  median rank of true columns 102.0
+   correlation |X^T y|        top20  0/60  top39  0/60  median rank of true columns  26.0
+   OMP order                  top20  0/60  top39  0/60  median rank of true columns  65.0
+   L1 magnitude               top20  0/60  top39  0/60  median rank of true columns  15.0
+   reweighted L1 magnitude    top20  0/60  top39  0/60  median rank of true columns  15.0
+   Pandora score              top20 11/60  top39 11/60  median rank of true columns  13.0
+EXIT 0

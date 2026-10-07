@@ -79,7 +79,59 @@ def ensembles():
     plt.close(fig)
 
 
+def measurements():
+    rows = json.loads((RES / "measurements.json").read_text())
+    fig, axes = plt.subplots(1, len(rows), figsize=(13, 3.8), sharey=True)
+    for ax, r in zip(axes, rows):
+        for m, (color, label) in STYLE.items():
+            ax.plot(r["m"], [100 * v for v in r["curves"][m]], "-o", color=color,
+                    lw=2.5 if m == "Pandora" else 2, ms=4, label=label)
+            if r["m50"][m]:
+                ax.axvline(r["m50"][m], color=color, lw=1, ls=":")
+        ax.axhline(50, color=GRID, lw=1)
+        ax.set_title(f"{r['k']} nonzeros: m50 is {r['m50']['L1']:.1f} for L1, "
+                     f"{r['m50']['Pandora']:.1f} for Pandora", loc="left", fontsize=9.5)
+        ax.set_xlabel("measurements")
+        ax.set_xlim(min(r["m"]) - 1, min(max(r["m"]), 6 * r["k"]) + 1)
+    axes[0].set_ylabel("exact recoveries (%)")
+    handles, labels = axes[0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="lower center", ncol=3, fontsize=9)
+    fig.suptitle("Pandora needs fewer measurements for the same recovery", x=0.01, ha="left",
+                 color=INK, weight="bold")
+    fig.tight_layout(rect=(0, 0.07, 1, 1))
+    fig.savefig(FIG / "measurements.png")
+    plt.close(fig)
+
+
+def baselines():
+    rows = json.loads((RES / "validate_baselines.json").read_text())
+    order = ["L1", "ISD", "OMP (given k)", "CoSaMP (given k)", "Subspace Pursuit (given k)",
+             "IHT (given k)", "Pandora"]
+    colors = [INK2, "#eb6834", "#e4e3df", "#d0cec9", "#bcbab5", "#a8a6a1", "#2a78d6"]
+    sel = [r for r in rows if (r["n"], r["k"]) in ((40, 10), (40, 12), (40, 14), (100, 30))]
+    fig, ax = plt.subplots(figsize=(12, 4.2))
+    x = np.arange(len(sel))
+    w = 0.12
+    for i, (m, c) in enumerate(zip(order, colors)):
+        vals = [r[m] for r in sel]
+        lo = [r[m] - r["ci95"][m][0] for r in sel]
+        hi = [r["ci95"][m][1] - r[m] for r in sel]
+        ax.bar(x + (i - 3) * w, vals, width=w - 0.015, color=c, label=m.replace(" (given k)", " (told k)"),
+               yerr=[lo, hi], error_kw={"ecolor": INK2, "elinewidth": 0.8, "capsize": 2})
+    ax.set_axisbelow(True)
+    ax.grid(axis="x", visible=False)
+    ax.set_xticks(x, [f"{r['k']} nonzeros\n{r['n']} x {r['d']}" for r in sel])
+    ax.set_ylabel("exact recoveries of 100 (95% CI)")
+    ax.legend(fontsize=8, ncol=4, loc="upper right")
+    ax.set_title("Against seven methods; greedy ones are told the true sparsity", loc="left")
+    fig.tight_layout()
+    fig.savefig(FIG / "baselines.png")
+    plt.close(fig)
+
+
 if __name__ == "__main__":
     FIG.mkdir(exist_ok=True)
     phase()
     ensembles()
+    measurements()
+    baselines()

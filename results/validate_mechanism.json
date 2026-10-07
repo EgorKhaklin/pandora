@@ -1,0 +1,30 @@
+[
+ {
+  "k": 8,
+  "trials": 60,
+  "L1 ranking": 49,
+  "Pandora ranking at the end": 59,
+  "Pandora recovered": 59
+ },
+ {
+  "k": 10,
+  "trials": 60,
+  "L1 ranking": 24,
+  "Pandora ranking at the end": 50,
+  "Pandora recovered": 52
+ },
+ {
+  "k": 12,
+  "trials": 60,
+  "L1 ranking": 11,
+  "Pandora ranking at the end": 29,
+  "Pandora recovered": 31
+ },
+ {
+  "k": 14,
+  "trials": 60,
+  "L1 ranking": 1,
+  "Pandora ranking at the end": 18,
+  "Pandora recovered": 18
+ }
+]

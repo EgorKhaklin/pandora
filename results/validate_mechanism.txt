@@ -1,0 +1,5 @@
+mechanism k=8: support inside top 20 of: {'L1 ranking': 49, 'Pandora ranking at the end': 59}; Pandora recovered 59/60
+mechanism k=10: support inside top 20 of: {'L1 ranking': 24, 'Pandora ranking at the end': 50}; Pandora recovered 52/60
+mechanism k=12: support inside top 20 of: {'L1 ranking': 11, 'Pandora ranking at the end': 29}; Pandora recovered 31/60
+mechanism k=14: support inside top 20 of: {'L1 ranking': 1, 'Pandora ranking at the end': 18}; Pandora recovered 18/60
+EXIT 0

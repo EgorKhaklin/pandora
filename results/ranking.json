@@ -1,0 +1,104 @@
+[
+ {
+  "k": 10,
+  "trials": 60,
+  "contains_support": {
+   "random | top 20": 0,
+   "random | top 39": 0,
+   "correlation |X^T y| | top 20": 0,
+   "correlation |X^T y| | top 39": 0,
+   "OMP order | top 20": 10,
+   "OMP order | top 39": 10,
+   "L1 magnitude | top 20": 33,
+   "L1 magnitude | top 39": 33,
+   "reweighted L1 magnitude | top 20": 34,
+   "reweighted L1 magnitude | top 39": 34,
+   "Pandora score | top 20": 52,
+   "Pandora score | top 39": 53
+  },
+  "median_rank_of_true_columns": {
+   "random": 101.0,
+   "correlation |X^T y|": 15.0,
+   "OMP order": 14.0,
+   "L1 magnitude": 5.0,
+   "reweighted L1 magnitude": 5.0,
+   "Pandora score": 5.0
+  },
+  "share_of_true_columns_in_top_10": {
+   "random": 0.058333333333333334,
+   "correlation |X^T y|": 0.4083333333333333,
+   "OMP order": 0.47,
+   "L1 magnitude": 0.8066666666666666,
+   "reweighted L1 magnitude": 0.795,
+   "Pandora score": 0.9233333333333333
+  }
+ },
+ {
+  "k": 12,
+  "trials": 60,
+  "contains_support": {
+   "random | top 20": 0,
+   "random | top 39": 0,
+   "correlation |X^T y| | top 20": 0,
+   "correlation |X^T y| | top 39": 0,
+   "OMP order | top 20": 0,
+   "OMP order | top 39": 0,
+   "L1 magnitude | top 20": 12,
+   "L1 magnitude | top 39": 12,
+   "reweighted L1 magnitude | top 20": 12,
+   "reweighted L1 magnitude | top 39": 12,
+   "Pandora score | top 20": 40,
+   "Pandora score | top 39": 40
+  },
+  "median_rank_of_true_columns": {
+   "random": 104.0,
+   "correlation |X^T y|": 18.0,
+   "OMP order": 64.0,
+   "L1 magnitude": 7.0,
+   "reweighted L1 magnitude": 7.0,
+   "Pandora score": 7.0
+  },
+  "share_of_true_columns_in_top_10": {
+   "random": 0.04027777777777778,
+   "correlation |X^T y|": 0.36527777777777776,
+   "OMP order": 0.31666666666666665,
+   "L1 magnitude": 0.5916666666666667,
+   "reweighted L1 magnitude": 0.5902777777777778,
+   "Pandora score": 0.6763888888888889
+  }
+ },
+ {
+  "k": 14,
+  "trials": 60,
+  "contains_support": {
+   "random | top 20": 0,
+   "random | top 39": 0,
+   "correlation |X^T y| | top 20": 0,
+   "correlation |X^T y| | top 39": 0,
+   "OMP order | top 20": 0,
+   "OMP order | top 39": 0,
+   "L1 magnitude | top 20": 0,
+   "L1 magnitude | top 39": 0,
+   "reweighted L1 magnitude | top 20": 0,
+   "reweighted L1 magnitude | top 39": 0,
+   "Pandora score | top 20": 11,
+   "Pandora score | top 39": 11
+  },
+  "median_rank_of_true_columns": {
+   "random": 102.0,
+   "correlation |X^T y|": 26.0,
+   "OMP order": 65.0,
+   "L1 magnitude": 15.0,
+   "reweighted L1 magnitude": 15.0,
+   "Pandora score": 13.0
+  },
+  "share_of_true_columns_in_top_10": {
+   "random": 0.05476190476190476,
+   "correlation |X^T y|": 0.3142857142857143,
+   "OMP order": 0.2833333333333333,
+   "L1 magnitude": 0.40714285714285714,
+   "reweighted L1 magnitude": 0.4,
+   "Pandora score": 0.41785714285714287
+  }
+ }
+]

@@ -1,0 +1,120 @@
+[
+ {
+  "matrix": "gaussian",
+  "n": 40,
+  "d": 200,
+  "k": 10,
+  "trials": 60,
+  "Pandora (default)": 51,
+  "no randomness (sliding window)": 55,
+  "no bias (vessels all random)": 34,
+  "no forgetting (decay 1.0)": 48,
+  "vessel 45 columns": 38,
+  "vessel 50 columns": 54,
+  "vessel 60 columns": 51,
+  "vessel 80 columns": 45,
+  "vessel 120 columns": 33,
+  "vessel 200 columns": 33,
+  "ci95": {
+   "Pandora (default)": [
+    73.9,
+    91.9
+   ],
+   "no randomness (sliding window)": [
+    81.9,
+    96.4
+   ],
+   "no bias (vessels all random)": [
+    44.1,
+    68.4
+   ],
+   "no forgetting (decay 1.0)": [
+    68.2,
+    88.2
+   ],
+   "vessel 45 columns": [
+    50.7,
+    74.4
+   ],
+   "vessel 50 columns": [
+    79.9,
+    95.3
+   ],
+   "vessel 60 columns": [
+    73.9,
+    91.9
+   ],
+   "vessel 80 columns": [
+    62.8,
+    84.2
+   ],
+   "vessel 120 columns": [
+    42.5,
+    66.9
+   ],
+   "vessel 200 columns": [
+    42.5,
+    66.9
+   ]
+  }
+ },
+ {
+  "matrix": "gaussian",
+  "n": 40,
+  "d": 200,
+  "k": 12,
+  "trials": 60,
+  "Pandora (default)": 30,
+  "no randomness (sliding window)": 33,
+  "no bias (vessels all random)": 8,
+  "no forgetting (decay 1.0)": 19,
+  "vessel 45 columns": 14,
+  "vessel 50 columns": 37,
+  "vessel 60 columns": 30,
+  "vessel 80 columns": 18,
+  "vessel 120 columns": 8,
+  "vessel 200 columns": 8,
+  "ci95": {
+   "Pandora (default)": [
+    37.7,
+    62.3
+   ],
+   "no randomness (sliding window)": [
+    42.5,
+    66.9
+   ],
+   "no bias (vessels all random)": [
+    6.9,
+    24.2
+   ],
+   "no forgetting (decay 1.0)": [
+    21.3,
+    44.2
+   ],
+   "vessel 45 columns": [
+    14.4,
+    35.4
+   ],
+   "vessel 50 columns": [
+    49.0,
+    72.9
+   ],
+   "vessel 60 columns": [
+    37.7,
+    62.3
+   ],
+   "vessel 80 columns": [
+    19.9,
+    42.5
+   ],
+   "vessel 120 columns": [
+    6.9,
+    24.2
+   ],
+   "vessel 200 columns": [
+    6.9,
+    24.2
+   ]
+  }
+ }
+]

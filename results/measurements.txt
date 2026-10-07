@@ -1,0 +1,42 @@
+k=5 m=12: L1 0/30 | ISD 0/30 | Pandora 3/30
+k=5 m=16: L1 0/30 | ISD 0/30 | Pandora 8/30
+k=5 m=20: L1 8/30 | ISD 13/30 | Pandora 20/30
+k=5 m=24: L1 16/30 | ISD 17/30 | Pandora 25/30
+k=5 m=28: L1 22/30 | ISD 23/30 | Pandora 24/30
+k=5 m=32: L1 30/30 | ISD 30/30 | Pandora 30/30
+k=5 m=36: L1 30/30 | ISD 30/30 | Pandora 30/30
+k=5 m=40: L1 30/30 | ISD 30/30 | Pandora 30/30
+k=5 m=44: L1 30/30 | ISD 30/30 | Pandora 30/30
+k=5 m=48: L1 30/30 | ISD 30/30 | Pandora 30/30
+k=5 m=52: L1 30/30 | ISD 30/30 | Pandora 30/30
+k=5 m=56: L1 30/30 | ISD 30/30 | Pandora 30/30
+k=5 m=60: L1 30/30 | ISD 30/30 | Pandora 30/30
+k=5 m=64: L1 30/30 | ISD 30/30 | Pandora 30/30
+k=5 m50: {'L1': np.float64(23.5), 'ISD': np.float64(22.0), 'Pandora': np.float64(18.333333333333332)}
+k=8 m=16: L1 0/30 | ISD 0/30 | Pandora 0/30
+k=8 m=20: L1 0/30 | ISD 0/30 | Pandora 0/30
+k=8 m=24: L1 1/30 | ISD 2/30 | Pandora 4/30
+k=8 m=28: L1 4/30 | ISD 10/30 | Pandora 18/30
+k=8 m=32: L1 6/30 | ISD 10/30 | Pandora 21/30
+k=8 m=36: L1 22/30 | ISD 25/30 | Pandora 27/30
+k=8 m=40: L1 25/30 | ISD 28/30 | Pandora 30/30
+k=8 m=44: L1 28/30 | ISD 30/30 | Pandora 30/30
+k=8 m=48: L1 30/30 | ISD 30/30 | Pandora 30/30
+k=8 m=52: L1 30/30 | ISD 30/30 | Pandora 30/30
+k=8 m=56: L1 30/30 | ISD 30/30 | Pandora 30/30
+k=8 m=60: L1 30/30 | ISD 30/30 | Pandora 30/30
+k=8 m=64: L1 30/30 | ISD 30/30 | Pandora 30/30
+k=8 m50: {'L1': np.float64(34.25), 'ISD': np.float64(33.333333333333336), 'Pandora': np.float64(27.142857142857142)}
+k=11 m=22: L1 0/30 | ISD 0/30 | Pandora 0/30
+k=11 m=26: L1 0/30 | ISD 0/30 | Pandora 1/30
+k=11 m=30: L1 1/30 | ISD 2/30 | Pandora 3/30
+k=11 m=34: L1 0/30 | ISD 3/30 | Pandora 6/30
+k=11 m=38: L1 7/30 | ISD 12/30 | Pandora 19/30
+k=11 m=42: L1 17/30 | ISD 18/30 | Pandora 24/30
+k=11 m=46: L1 20/30 | ISD 24/30 | Pandora 28/30
+k=11 m=50: L1 26/30 | ISD 28/30 | Pandora 29/30
+k=11 m=54: L1 29/30 | ISD 30/30 | Pandora 30/30
+k=11 m=58: L1 30/30 | ISD 30/30 | Pandora 30/30
+k=11 m=62: L1 30/30 | ISD 30/30 | Pandora 30/30
+k=11 m50: {'L1': np.float64(41.2), 'ISD': np.float64(40.0), 'Pandora': np.float64(36.76923076923077)}
+EXIT 0

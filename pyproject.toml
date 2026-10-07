@@ -1,0 +1,19 @@
+[project]
+name = "pandora-cs"
+version = "0.1.0"
+description = "Pandora: certified sparse recovery from many small basis-pursuit solves."
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.26", "scipy>=1.11"]
+license = "MIT"
+
+[project.optional-dependencies]
+noisy = ["scikit-learn>=1.4"]
+bench = ["matplotlib>=3.10", "scikit-learn>=1.4"]
+test = ["pytest>=8", "scikit-learn>=1.4"]
+
+[tool.setuptools]
+packages = ["pandora"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

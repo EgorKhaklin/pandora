@@ -1,0 +1,13 @@
+gaussian     k= 8: {'L1': 33, 'ISD': 38, 'Pandora': 39} (9s)
+gaussian     k=11: {'L1': 6, 'ISD': 19, 'Pandora': 30} (31s)
+gaussian     k=14: {'L1': 1, 'ISD': 2, 'Pandora': 12} (49s)
+bernoulli    k= 8: {'L1': 37, 'ISD': 40, 'Pandora': 40} (7s)
+bernoulli    k=11: {'L1': 20, 'ISD': 22, 'Pandora': 30} (25s)
+bernoulli    k=14: {'L1': 1, 'ISD': 5, 'Pandora': 10} (54s)
+partial DCT  k= 8: {'L1': 38, 'ISD': 40, 'Pandora': 40} (7s)
+partial DCT  k=11: {'L1': 12, 'ISD': 18, 'Pandora': 23} (44s)
+partial DCT  k=14: {'L1': 3, 'ISD': 6, 'Pandora': 9} (69s)
+correlated   k= 8: {'L1': 33, 'ISD': 38, 'Pandora': 39} (12s)
+correlated   k=11: {'L1': 8, 'ISD': 15, 'Pandora': 28} (36s)
+correlated   k=14: {'L1': 1, 'ISD': 2, 'Pandora': 13} (67s)
+EXIT 0

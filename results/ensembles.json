@@ -1,0 +1,110 @@
+[
+ {
+  "matrix": "gaussian",
+  "n": 40,
+  "k": 8,
+  "trials": 40,
+  "L1": 33,
+  "ISD": 38,
+  "Pandora": 39
+ },
+ {
+  "matrix": "gaussian",
+  "n": 40,
+  "k": 11,
+  "trials": 40,
+  "L1": 6,
+  "ISD": 19,
+  "Pandora": 30
+ },
+ {
+  "matrix": "gaussian",
+  "n": 40,
+  "k": 14,
+  "trials": 40,
+  "L1": 1,
+  "ISD": 2,
+  "Pandora": 12
+ },
+ {
+  "matrix": "bernoulli",
+  "n": 40,
+  "k": 8,
+  "trials": 40,
+  "L1": 37,
+  "ISD": 40,
+  "Pandora": 40
+ },
+ {
+  "matrix": "bernoulli",
+  "n": 40,
+  "k": 11,
+  "trials": 40,
+  "L1": 20,
+  "ISD": 22,
+  "Pandora": 30
+ },
+ {
+  "matrix": "bernoulli",
+  "n": 40,
+  "k": 14,
+  "trials": 40,
+  "L1": 1,
+  "ISD": 5,
+  "Pandora": 10
+ },
+ {
+  "matrix": "partial DCT",
+  "n": 40,
+  "k": 8,
+  "trials": 40,
+  "L1": 38,
+  "ISD": 40,
+  "Pandora": 40
+ },
+ {
+  "matrix": "partial DCT",
+  "n": 40,
+  "k": 11,
+  "trials": 40,
+  "L1": 12,
+  "ISD": 18,
+  "Pandora": 23
+ },
+ {
+  "matrix": "partial DCT",
+  "n": 40,
+  "k": 14,
+  "trials": 40,
+  "L1": 3,
+  "ISD": 6,
+  "Pandora": 9
+ },
+ {
+  "matrix": "correlated",
+  "n": 40,
+  "k": 8,
+  "trials": 40,
+  "L1": 33,
+  "ISD": 38,
+  "Pandora": 39
+ },
+ {
+  "matrix": "correlated",
+  "n": 40,
+  "k": 11,
+  "trials": 40,
+  "L1": 8,
+  "ISD": 15,
+  "Pandora": 28
+ },
+ {
+  "matrix": "correlated",
+  "n": 40,
+  "k": 14,
+  "trials": 40,
+  "L1": 1,
+  "ISD": 2,
+  "Pandora": 13
+ }
+]

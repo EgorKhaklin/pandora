@@ -1,0 +1,7 @@
+tune AMP damping 1.0: 20/80
+tune AMP damping 0.7: 21/80
+tune AMP damping 0.5: 19/80
+tune IRLS p=0.5: 0.049s per run vs Pandora 1.719s -> up to 35 runs
+tune IRLS p=0.1: 0.043s per run vs Pandora 1.719s -> up to 40 runs
+tune SBL: 0.040s per run vs Pandora 1.719s -> up to 43 runs
+EXIT 0

@@ -1,0 +1,14 @@
+{
+ "report": {
+  "AMP damping 1.0": 20,
+  "AMP damping 0.7": 21,
+  "AMP damping 0.5": 19
+ },
+ "caps": {
+  "amp_damping": 0.7,
+  "pandora_seconds": 1.718880008906126,
+  "IRLS p=0.5": 35,
+  "IRLS p=0.1": 40,
+  "SBL": 43
+ }
+}

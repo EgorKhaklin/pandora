@@ -80,6 +80,34 @@ on the baseline problems), with fewer linear programs, in about a third of the t
 (seconds were measured on a busy shared machine, so compare the ratio, not the values). p is an
 exact two-sided sign test on the problems that only one method solved (`benchmarks.validate budget`).
 
+### Against the strongest methods
+
+ISD is not the strongest method for this problem. `benchmarks.frontier` adds approximate message
+passing with the Bayes-optimal denoiser (AMP; Donoho, Maleki and Montanari, 2009; Krzakala et al.,
+2012), which is told the true sparsity and magnitude law while Pandora is not; sparse Bayesian
+learning (SBL; Wipf and Rao, 2004); and iteratively reweighted least squares for the ℓp quasi-norm
+(IRLS; Chartrand and Yin, 2008). Every method's output goes through the same certificate, and SBL
+and IRLS restart from random weights with caps set so that their mean time matches Pandora's on
+separate tuning problems. Fresh problems, counts out of 100 (40 × 200) and 50 (100 × 500):
+
+| setting | **Pandora** | SBL | ISD restarted | AMP (told the prior) | IRLS, p = 0.5 | IRLS, p = 0.1 |
+|---|---|---|---|---|---|---|
+| 40 × 200, 10 nonzeros | **86** | 84 | **86** | 69 | 61 | 51 |
+| 40 × 200, 12 nonzeros | **62** | 60 | 54 | 38 | 38 | 34 |
+| 40 × 200, 14 nonzeros | **16** | 14 | 10 | 6 | 3 | 3 |
+| 40 × 200, 16 nonzeros | **10** | 6 | 0 | 0 | 0 | 0 |
+| 100 × 500, 30 nonzeros | 12 | 6 | 6 | **14** | 11 | 6 |
+| 100 × 500, 35 nonzeros | **3** | 0 | 0 | 2 | 0 | 1 |
+
+At 40 × 200 Pandora recovers the most in every row and beats AMP and IRLS significantly, but SBL
+stays within sampling noise of it everywhere (paired p ≥ 0.13). At 100 × 500 AMP matches Pandora in
+a fortieth of the time. That is the expected direction: as problems grow at a fixed ratio, AMP
+approaches its large-system limit, which state evolution puts at k/n = 0.299 for these signals at
+1 measurement per 5 unknowns (L1: 0.243; `benchmarks.frontier se`). Pandora's 50% point at
+40 × 200 is near k/n = 0.31, above that line, but at 200 × 1000 it recovered 0 of 15 problems at
+k/n = 0.30 (see Larger problems). So far its edge looks like a finite-size effect, not a moved
+threshold.
+
 ### Fewer measurements for the same recovery
 
 ![measurements](figures/measurements.png)
@@ -250,6 +278,8 @@ exact-fit certificates.
   at 12, small ones, against L1's one.
 - Given the same budget and certificate, restarted ISD matches Pandora at 10 nonzeros
   (40 × 200); the lead remains at 12 and 14 (see Same budget, same certificate).
+- Against the strongest methods at matched time, sparse Bayesian learning is within sampling
+  noise of Pandora at 40 × 200, and AMP matches it at 100 × 500 in a fortieth of the time.
 - Pandora is randomized. On the same 100 problems a second seed gave counts within one of the
   first (98 / 90–91 / 53 / 25 / 2–3 at 8 to 17 nonzeros), but up to 14 individual problems
   changed outcome between the two seeds.
@@ -263,7 +293,7 @@ exact-fit certificates.
 
 ```bash
 python -m venv .venv && .venv/bin/pip install -e '.[test,bench]'
-.venv/bin/python -m pytest -q                         # 31 tests
+.venv/bin/python -m pytest -q                         # 39 tests
 .venv/bin/python -m benchmarks.run phase              # phase diagram
 .venv/bin/python -m benchmarks.run ensembles          # four matrix kinds
 .venv/bin/python -m benchmarks.validate baselines     # seven methods, 95% intervals
@@ -271,6 +301,9 @@ python -m venv .venv && .venv/bin/pip install -e '.[test,bench]'
 .venv/bin/python -m benchmarks.validate budget        # ISD with the same budget and certificate
 .venv/bin/python -m benchmarks.validate isdtune       # ISD's threshold, tuned
 .venv/bin/python -m benchmarks.validate certificates  # wrong answers returned; a second seed
+.venv/bin/python -m benchmarks.frontier tune          # restart caps for SBL and IRLS
+.venv/bin/python -m benchmarks.frontier compare       # AMP, SBL, IRLS, ISD against Pandora
+.venv/bin/python -m benchmarks.frontier se            # large-system thresholds of L1 and AMP
 .venv/bin/python -m benchmarks.measurements           # m50 curves
 .venv/bin/python -m benchmarks.ranking                # support inside the top of each ranking
 .venv/bin/python -m benchmarks.figures                # figures/ from results/

@@ -1,4 +1,9 @@
-# pandora
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/pandora-dark.svg">
+    <img src="assets/pandora-light.svg" width="100%" alt="Pandora: certified sparse recovery">
+  </picture>
+</p>
 
 ### Certified sparse recovery from many small basis-pursuit solves.
 

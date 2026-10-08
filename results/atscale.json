@@ -1,0 +1,41 @@
+{
+ "L1": 0,
+ "ISD": 2,
+ "rows": [
+  {
+   "config": "200 vessels, decay 0.5",
+   "recovered": 2,
+   "trials": 10,
+   "mean_vessels": 188.7,
+   "seconds": 828.6850428581238
+  },
+  {
+   "config": "600 vessels, decay 0.5",
+   "recovered": 4,
+   "trials": 10,
+   "mean_vessels": 465.3,
+   "seconds": 2182.8685369491577
+  },
+  {
+   "config": "1000 vessels, decay 0.5",
+   "recovered": 4,
+   "trials": 10,
+   "mean_vessels": 705.3,
+   "seconds": 3634.665438890457
+  },
+  {
+   "config": "600 vessels, decay 0.3",
+   "recovered": 4,
+   "trials": 10,
+   "mean_vessels": 442.4,
+   "seconds": 12171.895686149597
+  },
+  {
+   "config": "600 vessels, top n/4",
+   "recovered": 1,
+   "trials": 10,
+   "mean_vessels": 559.0,
+   "seconds": 1897.5499351024628
+  }
+ ]
+}

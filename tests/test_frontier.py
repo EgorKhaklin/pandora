@@ -3,7 +3,7 @@ import pytest
 
 from benchmarks.frontier import amp, certified, denoise, irls_lp, sbl
 from benchmarks.validate import exact, problem
-from pandora.core import certify
+from pandora.core import certify, pandora
 
 
 @pytest.mark.parametrize("tau,eps", [(0.3, 0.05), (1.0, 0.2), (0.05, 0.1)])
@@ -52,3 +52,18 @@ def test_certified_wrapper_stops_at_the_first_certificate():
 
     w, used = certified(X, y, run, 10, np.random.default_rng(0))
     assert used == 3 and len(calls) == 3 and exact(w, wt)
+
+
+def test_one_capped_run_gives_the_outcome_under_every_smaller_budget():
+    """`frontier threshold` reads success at budgets n to 50 n off one run capped at 50 n. That is
+    exact if no vessel depends on the cap: a run capped at any multiple of check_every succeeds
+    exactly when the long run certified by then, with the same vessels and the same answer."""
+    X, y, wt = problem("gaussian", 40, 200, 13, 4002)
+    w, info = pandora(X, y, rng=0, rounds=100, return_info=True)
+    r = info["rounds"]
+    assert exact(w, wt) and 5 < r < 50
+    for cap in range(5, 55, 5):
+        wc, ic = pandora(X, y, rng=0, rounds=cap, return_info=True)
+        assert (wc is not None) == (r <= cap) and ic["rounds"] == min(r, cap)
+        if wc is not None:
+            assert wc == pytest.approx(w)

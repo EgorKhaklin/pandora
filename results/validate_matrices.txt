@@ -1,0 +1,7 @@
+matrices toeplitz n=40 d=200 k=8: L1 37/40 [np.float64(80.1), np.float64(97.4)] | ISD 39/40 [np.float64(87.1), np.float64(99.6)] | OMP (given k) 9/40 [np.float64(12.3), np.float64(37.5)] | Pandora 40/40 [np.float64(91.2), 100] (9s)
+matrices toeplitz n=40 d=200 k=11: L1 13/40 [np.float64(20.1), np.float64(48.0)] | ISD 18/40 [np.float64(30.7), np.float64(60.2)] | OMP (given k) 0/40 [0, np.float64(8.8)] | Pandora 30/40 [np.float64(59.8), np.float64(85.8)] (35s)
+matrices toeplitz n=40 d=200 k=14: L1 0/40 [0, np.float64(8.8)] | ISD 0/40 [0, np.float64(8.8)] | OMP (given k) 0/40 [0, np.float64(8.8)] | Pandora 4/40 [np.float64(4.0), np.float64(23.1)] (86s)
+matrices ill-conditioned n=40 d=200 k=8: L1 28/40 [np.float64(54.6), np.float64(81.9)] | ISD 33/40 [np.float64(68.0), np.float64(91.3)] | OMP (given k) 0/40 [0, np.float64(8.8)] | Pandora 38/40 [np.float64(83.5), np.float64(98.6)] (15s)
+matrices ill-conditioned n=40 d=200 k=11: L1 12/40 [np.float64(18.1), np.float64(45.4)] | ISD 24/40 [np.float64(44.6), np.float64(73.7)] | OMP (given k) 0/40 [0, np.float64(8.8)] | Pandora 32/40 [np.float64(65.2), np.float64(89.5)] (36s)
+matrices ill-conditioned n=40 d=200 k=14: L1 0/40 [0, np.float64(8.8)] | ISD 1/40 [np.float64(0.4), np.float64(12.9)] | OMP (given k) 0/40 [0, np.float64(8.8)] | Pandora 13/40 [np.float64(20.1), np.float64(48.0)] (63s)
+EXIT 0

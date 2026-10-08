@@ -1,0 +1,7 @@
+d=1000 n=200 k=55: L1 0/10, ISD 2/10
+200 vessels, decay 0.5: 2/10, mean vessels 189 (829s)
+600 vessels, decay 0.5: 4/10, mean vessels 465 (2183s)
+1000 vessels, decay 0.5: 4/10, mean vessels 705 (3635s)
+600 vessels, decay 0.3: 4/10, mean vessels 442 (12172s)
+600 vessels, top n/4: 1/10, mean vessels 559 (1898s)
+EXIT 0

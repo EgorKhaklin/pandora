@@ -1,0 +1,90 @@
+[
+ {
+  "d": 200,
+  "n": 40,
+  "k": 10,
+  "trials": 30,
+  "L1": 14,
+  "ISD": 22,
+  "Pandora": 27,
+  "pandora_lps_mean": 31.2,
+  "pandora_seconds_mean": 0.08025414148966471
+ },
+ {
+  "d": 200,
+  "n": 40,
+  "k": 12,
+  "trials": 30,
+  "L1": 5,
+  "ISD": 7,
+  "Pandora": 19,
+  "pandora_lps_mean": 97.96666666666667,
+  "pandora_seconds_mean": 0.23701358636220296
+ },
+ {
+  "d": 500,
+  "n": 100,
+  "k": 25,
+  "trials": 30,
+  "L1": 13,
+  "ISD": 22,
+  "Pandora": 25,
+  "pandora_lps_mean": 42.3,
+  "pandora_seconds_mean": 0.8371080954869589
+ },
+ {
+  "d": 500,
+  "n": 100,
+  "k": 30,
+  "trials": 30,
+  "L1": 1,
+  "ISD": 5,
+  "Pandora": 14,
+  "pandora_lps_mean": 138.13333333333333,
+  "pandora_seconds_mean": 2.726463460922241
+ },
+ {
+  "d": 1000,
+  "n": 200,
+  "k": 50,
+  "trials": 15,
+  "L1": 3,
+  "ISD": 14,
+  "Pandora": 13,
+  "pandora_lps_mean": 58.13333333333333,
+  "pandora_seconds_mean": 8.512451457977296
+ },
+ {
+  "d": 1000,
+  "n": 200,
+  "k": 60,
+  "trials": 15,
+  "L1": 0,
+  "ISD": 0,
+  "Pandora": 0,
+  "pandora_lps_mean": 201.0,
+  "pandora_seconds_mean": 28.078628269831338
+ },
+ {
+  "d": 2000,
+  "n": 400,
+  "k": 100,
+  "trials": 15,
+  "L1": 4,
+  "ISD": 11,
+  "Pandora": 13,
+  "pandora_lps_mean": 66.13333333333334,
+  "pandora_seconds_mean": 159.0822088400523
+ },
+ {
+  "d": 2000,
+  "n": 400,
+  "k": 120,
+  "trials": 15,
+  "L1": 0,
+  "ISD": 0,
+  "Pandora": 1,
+  "pandora_lps_mean": 193.93333333333334,
+  "pandora_seconds_mean": 894.1937647183736
+ }
+]

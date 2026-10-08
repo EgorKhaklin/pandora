@@ -1,0 +1,176 @@
+[
+ {
+  "matrix": "toeplitz",
+  "n": 40,
+  "d": 200,
+  "k": 8,
+  "trials": 40,
+  "L1": 37,
+  "ISD": 39,
+  "OMP (given k)": 9,
+  "Pandora": 40,
+  "ci95": {
+   "L1": [
+    80.1,
+    97.4
+   ],
+   "ISD": [
+    87.1,
+    99.6
+   ],
+   "OMP (given k)": [
+    12.3,
+    37.5
+   ],
+   "Pandora": [
+    91.2,
+    100
+   ]
+  }
+ },
+ {
+  "matrix": "toeplitz",
+  "n": 40,
+  "d": 200,
+  "k": 11,
+  "trials": 40,
+  "L1": 13,
+  "ISD": 18,
+  "OMP (given k)": 0,
+  "Pandora": 30,
+  "ci95": {
+   "L1": [
+    20.1,
+    48.0
+   ],
+   "ISD": [
+    30.7,
+    60.2
+   ],
+   "OMP (given k)": [
+    0,
+    8.8
+   ],
+   "Pandora": [
+    59.8,
+    85.8
+   ]
+  }
+ },
+ {
+  "matrix": "toeplitz",
+  "n": 40,
+  "d": 200,
+  "k": 14,
+  "trials": 40,
+  "L1": 0,
+  "ISD": 0,
+  "OMP (given k)": 0,
+  "Pandora": 4,
+  "ci95": {
+   "L1": [
+    0,
+    8.8
+   ],
+   "ISD": [
+    0,
+    8.8
+   ],
+   "OMP (given k)": [
+    0,
+    8.8
+   ],
+   "Pandora": [
+    4.0,
+    23.1
+   ]
+  }
+ },
+ {
+  "matrix": "ill-conditioned",
+  "n": 40,
+  "d": 200,
+  "k": 8,
+  "trials": 40,
+  "L1": 28,
+  "ISD": 33,
+  "OMP (given k)": 0,
+  "Pandora": 38,
+  "ci95": {
+   "L1": [
+    54.6,
+    81.9
+   ],
+   "ISD": [
+    68.0,
+    91.3
+   ],
+   "OMP (given k)": [
+    0,
+    8.8
+   ],
+   "Pandora": [
+    83.5,
+    98.6
+   ]
+  }
+ },
+ {
+  "matrix": "ill-conditioned",
+  "n": 40,
+  "d": 200,
+  "k": 11,
+  "trials": 40,
+  "L1": 12,
+  "ISD": 24,
+  "OMP (given k)": 0,
+  "Pandora": 32,
+  "ci95": {
+   "L1": [
+    18.1,
+    45.4
+   ],
+   "ISD": [
+    44.6,
+    73.7
+   ],
+   "OMP (given k)": [
+    0,
+    8.8
+   ],
+   "Pandora": [
+    65.2,
+    89.5
+   ]
+  }
+ },
+ {
+  "matrix": "ill-conditioned",
+  "n": 40,
+  "d": 200,
+  "k": 14,
+  "trials": 40,
+  "L1": 0,
+  "ISD": 1,
+  "OMP (given k)": 0,
+  "Pandora": 13,
+  "ci95": {
+   "L1": [
+    0,
+    8.8
+   ],
+   "ISD": [
+    0.4,
+    12.9
+   ],
+   "OMP (given k)": [
+    0,
+    8.8
+   ],
+   "Pandora": [
+    20.1,
+    48.0
+   ]
+  }
+ }
+]

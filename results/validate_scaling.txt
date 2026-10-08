@@ -1,0 +1,9 @@
+scaling d=200 n=40 k=10: {'L1': np.int64(14), 'ISD': np.int64(22), 'Pandora': np.int64(27)} of 30; Pandora 31 LPs, 0.1s per problem (4s)
+scaling d=200 n=40 k=12: {'L1': np.int64(5), 'ISD': np.int64(7), 'Pandora': np.int64(19)} of 30; Pandora 98 LPs, 0.2s per problem (9s)
+scaling d=500 n=100 k=25: {'L1': np.int64(13), 'ISD': np.int64(22), 'Pandora': np.int64(25)} of 30; Pandora 42 LPs, 0.8s per problem (40s)
+scaling d=500 n=100 k=30: {'L1': np.int64(1), 'ISD': np.int64(5), 'Pandora': np.int64(14)} of 30; Pandora 138 LPs, 2.7s per problem (101s)
+scaling d=1000 n=200 k=50: {'L1': np.int64(3), 'ISD': np.int64(14), 'Pandora': np.int64(13)} of 15; Pandora 58 LPs, 8.5s per problem (177s)
+scaling d=1000 n=200 k=60: {'L1': np.int64(0), 'ISD': np.int64(0), 'Pandora': 0} of 15; Pandora 201 LPs, 28.1s per problem (487s)
+scaling d=2000 n=400 k=100: {'L1': np.int64(4), 'ISD': np.int64(11), 'Pandora': np.int64(13)} of 15; Pandora 66 LPs, 159.1s per problem (3097s)
+scaling d=2000 n=400 k=120: {'L1': np.int64(0), 'ISD': np.int64(0), 'Pandora': np.int64(1)} of 15; Pandora 194 LPs, 894.2s per problem (15009s)
+EXIT 0

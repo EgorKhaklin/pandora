@@ -105,8 +105,36 @@ a fortieth of the time. That is the expected direction: as problems grow at a fi
 approaches its large-system limit, which state evolution puts at k/n = 0.299 for these signals at
 1 measurement per 5 unknowns (L1: 0.243; `benchmarks.frontier se`). Pandora's 50% point at
 40 × 200 is near k/n = 0.31, above that line, but at 200 × 1000 it recovered 0 of 15 problems at
-k/n = 0.30 (see Larger problems). So far its edge looks like a finite-size effect, not a moved
-threshold.
+k/n = 0.30 (see Larger problems).
+
+Could a larger budget keep Pandora above that line as problems grow? `benchmarks.frontier
+threshold` gives it up to 50 n vessels per problem at three sizes around k/n = 0.30, and runs AMP
+on the same fresh problems. One run capped at 50 n gives the outcome under every smaller budget,
+because no vessel depends on the cap (tested). Recovered:
+
+| size | problems | k/n | Pandora, n vessels | Pandora, 50 n vessels | AMP |
+|---|---|---|---|---|---|
+| 40 × 200 | 40 | 0.275 | 27 | **37** | 24 |
+| 40 × 200 | 40 | 0.300 | 19 | **32** | 16 |
+| 40 × 200 | 40 | 0.325 | 11 | **25** | 4 |
+| 40 × 200 | 40 | 0.350 | 6 | **13** | 3 |
+| 80 × 400 | 30 | 0.275 | 14 | **20** | 14 |
+| 80 × 400 | 30 | 0.300 | 7 | **14** | 7 |
+| 80 × 400 | 30 | 0.325 | 3 | **9** | 3 |
+| 80 × 400 | 30 | 0.338 | 1 | **6** | 2 |
+| 160 × 800 | 20 | 0.281 | 9 | **13** | 12 |
+| 160 × 800 | 20 | 0.300 | 8 | **11** | 8 |
+| 160 × 800 | 20 | 0.319 | 0 | **4** | 3 |
+| 160 × 800 | 20 | 0.338 | 0 | **1** | 0 |
+
+Pandora's lead over AMP shrinks as the problems grow: averaged over each size's four rows it is
+about 38 percentage points at 40 × 200, 19 at 80 × 400 and 8 at 160 × 800. With n vessels Pandora
+is level with AMP at 80 × 400 (25 against 26 of 120) and behind it at 160 × 800 (17 against 23 of
+80). If Pandora's threshold were above AMP's, the gap at k/n ≥ 0.30 would widen with size, since
+recovery curves sharpen; it narrows at every k/n from 0.30 up. The second half of the budget, 25 n
+to 50 n vessels, added 6 recoveries in 160 problems at 40 × 200, 3 in 120 at 80 × 400 and none in
+80 at 160 × 800. Pandora's edge is a finite-size effect: on this evidence it does not move the
+threshold, and AMP gets as far with one run as Pandora does with up to 8000 linear programs.
 
 ### Fewer measurements for the same recovery
 
@@ -130,12 +158,17 @@ baselines, as in the first table):
 
 With Gaussian matrices from 20 to 100 measurements (30 problems per point), and with ±1
 entries, rows of a discrete cosine transform and correlated columns (40 problems per cell),
-Pandora ties or beats ISD in all 28 cells.
+Pandora ties or beats ISD in all 28 cells. On two harder designs at 40 × 200, a random Toeplitz
+matrix and a matrix whose singular values fall from 1 to 0.01, the gap is wider: at 11 nonzeros
+Pandora recovered 30 and 32 of 40, ISD 18 and 24, L1 13 and 12 (`benchmarks.validate matrices`).
+Those baselines are single runs, not given Pandora's budget, and SBL and AMP have not been run
+on these designs.
 
 ### Larger problems
 
 The same ratio, 1 measurement per 5 unknowns, at growing size (Pandora's budget fixed at 200
-vessels; [results/validate_scaling.json](results/validate_scaling.json) when complete):
+vessels; wall-clock times on a shared 8-core Mac;
+[results/validate_scaling.json](results/validate_scaling.json)):
 
 | unknowns | measurements | nonzeros | L1 | ISD | **Pandora** | Pandora time per problem |
 |---|---|---|---|---|---|---|
@@ -144,11 +177,15 @@ vessels; [results/validate_scaling.json](results/validate_scaling.json) when com
 | 1000 | 200 | 50 | 3 | **14** | 13 of 15 | 8.5 s |
 | 1000 | 200 | 60 | 0 | 0 | 0 of 15 | 28 s |
 | 2000 | 400 | 100 | 4 | 11 | 13 of 15 | 159 s |
+| 2000 | 400 | 120 | 0 | 0 | 1 of 15 | 894 s |
 
 The lead holds to 500 unknowns. At 1000 and 2000 Pandora and ISD are level at this budget:
 more true columns can sit outside the top group at once, and the chance that one vessel covers
-them all falls exponentially in that number (THEORY.md). Whether a larger budget or another
-recipe restores the lead is not yet known.
+them all falls exponentially in that number (THEORY.md). A larger budget buys little: at 1000
+unknowns and 55 nonzeros (10 problems, `benchmarks.atscale`) Pandora recovered 2 with 200
+vessels, 4 with 600 and still 4 with 1000, where L1 recovered 0 and ISD 2. A slower decay (0.3)
+also gave 4, and a smaller top group (n/4) gave 1. Near AMP's line the answer is the same (see
+Against the strongest methods).
 
 ## How it works
 
@@ -280,10 +317,14 @@ exact-fit certificates.
   (40 × 200); the lead remains at 12 and 14 (see Same budget, same certificate).
 - Against the strongest methods at matched time, sparse Bayesian learning is within sampling
   noise of Pandora at 40 × 200, and AMP matches it at 100 × 500 in a fortieth of the time.
+- It does not move the large-system threshold. With up to 50 n vessels its lead over AMP falls
+  from about 38 percentage points at 40 × 200 to 8 at 160 × 800, and at 160 × 800 the second half
+  of that budget recovered nothing more.
 - Pandora is randomized. On the same 100 problems a second seed gave counts within one of the
   first (98 / 90–91 / 53 / 25 / 2–3 at 8 to 17 nonzeros), but up to 14 individual problems
   changed outcome between the two seeds.
-- At a fixed budget of 200 vessels the advantage fades by 1000 unknowns (see Larger problems).
+- At a fixed budget of 200 vessels the advantage fades by 1000 unknowns, and five times the
+  budget recovers little more there (see Larger problems).
 - A re-implementation written from this README alone, sharing no code with the package,
   reproduced the 40 × 200 results: its counts were within or above the intervals here (29% against
   21% at 14 nonzeros, over 400 problems), and its linear-program costs matched. Replication by
@@ -293,7 +334,7 @@ exact-fit certificates.
 
 ```bash
 python -m venv .venv && .venv/bin/pip install -e '.[test,bench]'
-.venv/bin/python -m pytest -q                         # 39 tests
+.venv/bin/python -m pytest -q                         # 40 tests
 .venv/bin/python -m benchmarks.run phase              # phase diagram
 .venv/bin/python -m benchmarks.run ensembles          # four matrix kinds
 .venv/bin/python -m benchmarks.validate baselines     # seven methods, 95% intervals
@@ -301,9 +342,13 @@ python -m venv .venv && .venv/bin/pip install -e '.[test,bench]'
 .venv/bin/python -m benchmarks.validate budget        # ISD with the same budget and certificate
 .venv/bin/python -m benchmarks.validate isdtune       # ISD's threshold, tuned
 .venv/bin/python -m benchmarks.validate certificates  # wrong answers returned; a second seed
+.venv/bin/python -m benchmarks.validate scaling       # larger problems, 200 vessels
+.venv/bin/python -m benchmarks.validate matrices      # Toeplitz and ill-conditioned matrices
+.venv/bin/python -m benchmarks.atscale                # budget and recipe at 1000 unknowns
 .venv/bin/python -m benchmarks.frontier tune          # restart caps for SBL and IRLS
 .venv/bin/python -m benchmarks.frontier compare       # AMP, SBL, IRLS, ISD against Pandora
 .venv/bin/python -m benchmarks.frontier se            # large-system thresholds of L1 and AMP
+.venv/bin/python -m benchmarks.frontier threshold     # Pandora vs AMP near its line, n = 40 to 160
 .venv/bin/python -m benchmarks.measurements           # m50 curves
 .venv/bin/python -m benchmarks.ranking                # support inside the top of each ranking
 .venv/bin/python -m benchmarks.figures                # figures/ from results/

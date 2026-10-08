@@ -1,0 +1,52 @@
+[
+ {
+  "k": 8,
+  "trials": 100,
+  "returned": 98,
+  "wrong": 0,
+  "worst_error_of_a_correct_answer": 2.2868701462483617e-14,
+  "recovered_seed_0": 98,
+  "recovered_seed_1": 98,
+  "solved_under_one_seed_only": 0
+ },
+ {
+  "k": 10,
+  "trials": 100,
+  "returned": 90,
+  "wrong": 0,
+  "worst_error_of_a_correct_answer": 1.1278474520041635e-13,
+  "recovered_seed_0": 90,
+  "recovered_seed_1": 91,
+  "solved_under_one_seed_only": 5
+ },
+ {
+  "k": 12,
+  "trials": 100,
+  "returned": 53,
+  "wrong": 0,
+  "worst_error_of_a_correct_answer": 2.9567565334699095e-14,
+  "recovered_seed_0": 53,
+  "recovered_seed_1": 53,
+  "solved_under_one_seed_only": 14
+ },
+ {
+  "k": 14,
+  "trials": 100,
+  "returned": 25,
+  "wrong": 0,
+  "worst_error_of_a_correct_answer": 1.0118992625047307e-14,
+  "recovered_seed_0": 25,
+  "recovered_seed_1": 25,
+  "solved_under_one_seed_only": 8
+ },
+ {
+  "k": 17,
+  "trials": 100,
+  "returned": 3,
+  "wrong": 0,
+  "worst_error_of_a_correct_answer": 4.730726139862827e-15,
+  "recovered_seed_0": 3,
+  "recovered_seed_1": 2,
+  "solved_under_one_seed_only": 3
+ }
+]

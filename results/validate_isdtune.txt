@@ -1,0 +1,16 @@
+isdtune tuning beta 1.5 iters 4: [np.int64(33), np.int64(14), np.int64(2)] total 49
+isdtune tuning beta 1.5 iters 8: [np.int64(33), np.int64(15), np.int64(2)] total 50
+isdtune tuning beta 1.5 iters 16: [np.int64(33), np.int64(15), np.int64(2)] total 50
+isdtune tuning beta 2 iters 4: [np.int64(28), np.int64(17), np.int64(4)] total 49
+isdtune tuning beta 2 iters 8: [np.int64(28), np.int64(17), np.int64(4)] total 49
+isdtune tuning beta 2 iters 16: [np.int64(28), np.int64(17), np.int64(4)] total 49
+isdtune tuning beta 3 iters 4: [np.int64(28), np.int64(16), np.int64(3)] total 47
+isdtune tuning beta 3 iters 8: [np.int64(28), np.int64(16), np.int64(3)] total 47
+isdtune tuning beta 3 iters 16: [np.int64(28), np.int64(16), np.int64(3)] total 47
+isdtune tuning beta 5 iters 4: [np.int64(26), np.int64(14), np.int64(2)] total 42
+isdtune tuning beta 5 iters 8: [np.int64(26), np.int64(14), np.int64(2)] total 42
+isdtune tuning beta 5 iters 16: [np.int64(26), np.int64(14), np.int64(2)] total 42
+isdtune test k=10: default 68/100, tuned (beta 1.5, 8 iters) 72/100
+isdtune test k=12: default 33/100, tuned (beta 1.5, 8 iters) 27/100
+isdtune test k=14: default 8/100, tuned (beta 1.5, 8 iters) 9/100
+EXIT 0

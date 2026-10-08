@@ -1,0 +1,6 @@
+certificates k=8: returned 98, wrong 0, worst error 2.3e-14; recovered 98 vs 98 under two seeds
+certificates k=10: returned 90, wrong 0, worst error 1.1e-13; recovered 90 vs 91 under two seeds
+certificates k=12: returned 53, wrong 0, worst error 3.0e-14; recovered 53 vs 53 under two seeds
+certificates k=14: returned 25, wrong 0, worst error 1.0e-14; recovered 25 vs 25 under two seeds
+certificates k=17: returned 3, wrong 0, worst error 4.7e-15; recovered 3 vs 2 under two seeds
+EXIT 0

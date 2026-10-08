@@ -1,0 +1,122 @@
+[
+ {
+  "problems": "baseline problems",
+  "n": 40,
+  "d": 200,
+  "k": 10,
+  "trials": 100,
+  "Pandora": 90,
+  "ISD restarts": 89,
+  "only Pandora": 6,
+  "only ISD restarts": 5,
+  "p": 1.0,
+  "LPs": [
+   34.06,
+   41.22
+  ],
+  "seconds": [
+   0.2128087028954178,
+   0.659683984592557
+  ]
+ },
+ {
+  "problems": "baseline problems",
+  "n": 40,
+  "d": 200,
+  "k": 12,
+  "trials": 100,
+  "Pandora": 56,
+  "ISD restarts": 46,
+  "only Pandora": 18,
+  "only ISD restarts": 8,
+  "p": 0.0755,
+  "LPs": [
+   106.7,
+   125.91
+  ],
+  "seconds": [
+   0.635503119113855,
+   2.01763273707591
+  ]
+ },
+ {
+  "problems": "baseline problems",
+  "n": 40,
+  "d": 200,
+  "k": 14,
+  "trials": 100,
+  "Pandora": 21,
+  "ISD restarts": 10,
+  "only Pandora": 12,
+  "only ISD restarts": 1,
+  "p": 0.0034,
+  "LPs": [
+   167.8,
+   180.9
+  ],
+  "seconds": [
+   1.1188992382958531,
+   3.2071209058584644
+  ]
+ },
+ {
+  "problems": "fresh problems",
+  "n": 40,
+  "d": 200,
+  "k": 10,
+  "trials": 100,
+  "Pandora": 92,
+  "ISD restarts": 90,
+  "only Pandora": 6,
+  "only ISD restarts": 4,
+  "p": 0.7539,
+  "LPs": [
+   33.26,
+   41.13
+  ],
+  "seconds": [
+   0.24773854200728238,
+   0.7752753358334303
+  ]
+ },
+ {
+  "problems": "fresh problems",
+  "n": 40,
+  "d": 200,
+  "k": 12,
+  "trials": 100,
+  "Pandora": 68,
+  "ISD restarts": 52,
+  "only Pandora": 23,
+  "only ISD restarts": 7,
+  "p": 0.0052,
+  "LPs": [
+   82.65,
+   117.81
+  ],
+  "seconds": [
+   0.6027178333746269,
+   2.2860577999660747
+  ]
+ },
+ {
+  "problems": "fresh problems",
+  "n": 40,
+  "d": 200,
+  "k": 14,
+  "trials": 100,
+  "Pandora": 26,
+  "ISD restarts": 9,
+  "only Pandora": 18,
+  "only ISD restarts": 1,
+  "p": 0.0001,
+  "LPs": [
+   160.63,
+   182.97
+  ],
+  "seconds": [
+   1.0488781246589496,
+   3.168049935013987
+  ]
+ }
+]

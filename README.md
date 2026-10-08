@@ -15,11 +15,12 @@ test, so a hit is a recovery, not a guess.
 import numpy as np
 from pandora import pandora
 
-rng = np.random.default_rng(0)
+rng = np.random.default_rng(1)
 X = rng.normal(size=(40, 200))                      # 40 measurements, 200 unknowns
 w_true = np.zeros(200)
-w_true[rng.choice(200, 11, replace=False)] = rng.uniform(1, 2, 11)
+w_true[rng.choice(200, 11, replace=False)] = rng.choice([-1, 1], 11) * rng.uniform(1, 2, 11)
 w = pandora(X, X @ w_true, rng=0)                    # None if no certificate within the budget
+                                                     # (about 1 problem in 5 at this size)
 ```
 
 ## Results
@@ -37,20 +38,50 @@ and IHT are given the true number of nonzeros. Pandora is not.
 
 | setting | L1 | ISD | CoSaMP | Subspace Pursuit | IHT | OMP | **Pandora** |
 |---|---|---|---|---|---|---|---|
+| 40 × 200, 8 nonzeros | 82 | 98 | 72 | 65 | 48 | 32 | **99** |
 | 40 × 200, 10 nonzeros | 47 | 68 | 34 | 28 | 23 | 10 | **90** (83–95) |
 | 40 × 200, 12 nonzeros | 13 | 33 (25–43) | 13 | 6 | 3 | 1 | **56** (46–65) |
 | 40 × 200, 14 nonzeros | 4 | 8 | 1 | 2 | 0 | 0 | **21** (14–30) |
+| 100 × 500, 25 nonzeros | 37 | 70 (60–78) | 26 | 26 | 14 | 0 | **76** (67–83) |
 | 100 × 500, 30 nonzeros | 4 | 13 (8–21) | 1 | 2 | 0 | 0 | **34** (26–44) |
+| 100 × 500, 35 nonzeros | 0 | 0 | 0 | 0 | 0 | 0 | **2** |
 
-ISD is iterative support detection (Wang and Yin, 2010), the strongest baseline here.
-Across 7 cells Pandora is never beaten. Where problems are hard, its interval sits above ISD's.
+ISD is iterative support detection (Wang and Yin, 2010) with threshold `max|w| / 2^(t+1)` and 8
+reweighted solves, the strongest baseline here. Pandora is never beaten in these 7 cells, and
+where problems are hard its interval sits above ISD's. But every baseline here gets a single run:
+ISD solves 9 linear programs, while Pandora averages 34, 107 and 168 at 10, 12 and 14 nonzeros
+(40 × 200). The next table evens that out.
+
+### Same budget, same certificate
+
+Pandora's exact-fit certificate (below) can stop any method, so the fair comparison gives ISD the
+same stopping rule and budget: restart it from random column weights, each drawn from [0.5, 1.5],
+until the certificate passes or 200 linear programs are spent. ISD's threshold for this was tuned
+on separate problems; tuning alone did not help single-run ISD (72 / 27 / 9 against 68 / 33 / 8
+at 10 / 12 / 14 nonzeros, `benchmarks.validate isdtune`). Paired on the same 40 × 200 problems, 100 per cell:
+
+| nonzeros | problems | ISD restarted | **Pandora** | solved by only one (Pandora / ISD) | p | linear programs | seconds |
+|---|---|---|---|---|---|---|---|
+| 10 | baseline | 89 | 90 | 6 / 5 | 1.0 | 34 vs 41 | 0.21 vs 0.66 |
+| 10 | fresh | 90 | 92 | 6 / 4 | 0.75 | 33 vs 41 | 0.25 vs 0.78 |
+| 12 | baseline | 46 | 56 | 18 / 8 | 0.08 | 107 vs 126 | 0.64 vs 2.02 |
+| 12 | fresh | 52 | **68** | 23 / 7 | 0.005 | 83 vs 118 | 0.60 vs 2.29 |
+| 14 | baseline | 10 | **21** | 12 / 1 | 0.003 | 168 vs 181 | 1.12 vs 3.21 |
+| 14 | fresh | 9 | **26** | 18 / 1 | 0.0001 | 161 vs 183 | 1.05 vs 3.17 |
+
+With the same budget and certificate, restarted ISD catches up at 10 nonzeros. At 12 and 14
+nonzeros Pandora recovers more in all four rows, significantly in three (p = 0.08 for 12 nonzeros
+on the baseline problems), with fewer linear programs, in about a third of the time
+(seconds were measured on a busy shared machine, so compare the ratio, not the values). p is an
+exact two-sided sign test on the problems that only one method solved (`benchmarks.validate budget`).
 
 ### Fewer measurements for the same recovery
 
 ![measurements](figures/measurements.png)
 
 Fix the sparsity, vary the number of measurements, and find `m50`, the number of measurements
-at which half the problems are recovered (200 unknowns, 30 problems per point):
+at which half the problems are recovered (200 unknowns, 30 problems per point; single-run
+baselines, as in the first table):
 
 | nonzeros | L1 | ISD | **Pandora** | fewer than L1 | fewer than ISD |
 |---|---|---|---|---|---|
@@ -79,26 +110,36 @@ vessels; [results/validate_scaling.json](results/validate_scaling.json) when com
 | 500 | 100 | 30 | 1 | 5 | **14** of 30 | 2.7 s |
 | 1000 | 200 | 50 | 3 | **14** | 13 of 15 | 8.5 s |
 | 1000 | 200 | 60 | 0 | 0 | 0 of 15 | 28 s |
+| 2000 | 400 | 100 | 4 | 11 | 13 of 15 | 159 s |
 
-The lead holds to 500 unknowns. At 1000 it is gone at this budget: more true columns can sit
-outside the top group at once, and the chance that one vessel covers them all falls
-exponentially in that number (THEORY.md). Whether a larger budget restores it is being tested.
+The lead holds to 500 unknowns. At 1000 and 2000 Pandora and ISD are level at this budget:
+more true columns can sit outside the top group at once, and the chance that one vessel covers
+them all falls exponentially in that number (THEORY.md). Whether a larger budget or another
+recipe restores the lead is not yet known.
 
 ## How it works
 
 1. Solve basis pursuit on all columns, and score each column by `|w|`.
 2. Repeat. A vessel is the `n/2` best-scored columns plus `n` random others. Solve basis pursuit
    on the vessel alone: it has `1.5 n` unknowns instead of `d`, a much easier problem. If the
-   vessel's solution has fewer than `n` nonzeros, it is the answer: stop. Otherwise update
+   vessel's solution has fewer than `n` nonzeros (entries above 10⁻⁹ of its largest), run least
+   squares on those columns; if that fits `y` exactly, return it and stop. Otherwise update
    `score ← 0.5 · score + |w_vessel|`.
 3. Every 5 vessels, run least squares on the `n − 1` best-scored columns. If it fits `y` exactly,
    stop and return it.
+
+"Exactly" means a residual below 10⁻⁸ `‖y‖`. Nothing is returned without passing that
+least-squares test. A vessel's sparse-looking solution is never returned as it stands: read off a
+sparsity cutoff alone, it can be a dense solution with tiny entries, and wrong.
 
 **Why the stops are certificates** ([THEORY.md](THEORY.md)). For generic `X` and `w`, if fewer
 than `n` columns fit `y` exactly, they contain the whole true support, and least squares on
 them returns the true `w` (Lemma 1). So a vessel that comes back sparse has recovered `w`
 (Corollary 2). This is a stopping rule built on a known fact: a sparse vector is generically
-the unique sparsest solution once `n > k`.
+the unique sparsest solution once `n > k` (see, e.g., Baron et al., 2009). In floating point the
+test is a tolerance, so it was checked directly: on 500 fresh problems with 8 to 17 nonzeros,
+all 269 answers Pandora returned were correct to within 2 × 10⁻¹³, and none was wrong
+(`benchmarks.validate certificates`).
 
 ## Why it works
 
@@ -166,11 +207,30 @@ elementwise reparameterization can at best tie L1 at finding sparse answers. Pas
 the problem is the ranking, and Pandora builds the ranking from many small solves instead
 (charon E16 to E18).
 
-**Related work.** Random Lasso (Wang et al., 2011) runs lasso on random column subsets.
-Stability selection (Meinshausen and Bühlmann, 2010) scores columns over resamples. Iterative
-support detection (Wang and Yin, 2010) and reweighted L1 (Candès, Wakin and Boyd, 2008) refine
-a single solve. Pandora's combination, small vessels biased toward the current best columns
-with exact-fit stopping certificates, was not found in a literature search.
+**Related work.** Each part of Pandora has precedent.
+
+- Biased column subsets. Random Lasso (Wang, Nan, Rosset and Zhu, 2011) runs lasso on random
+  column subsets, then draws a second round of subsets with probabilities set by the first
+  round's coefficients: two rounds, for noisy regression, averaged rather than certified.
+  Sequential random subspace selection (Sutera et al., 2018) builds each subset from the
+  features found so far plus random others, as a vessel is built, with trees instead of linear
+  programs. Iterative random forests (Basu et al., 2018) and iterative RaSE (Tian and Feng,
+  2021) also reweight feature sampling round by round. Stability selection (Meinshausen and
+  Bühlmann, 2010) scores columns over resamples.
+- Linear programs past L1's threshold. Iterative support detection (Wang and Yin, 2010) and
+  reweighted L1 (Candès, Wakin and Boyd, 2008) refine a single solve. Two-step reweighted L1
+  (Khajehnejad, Xu, Avestimehr and Hassibi, 2010) and modified compressed sensing (Vaswani and
+  Lu, 2010) prove that solves steered by a support estimate go past L1's phase transition.
+- Re-solving on the best columns plus candidates. Subspace Pursuit (Dai and Milenkovic, 2009)
+  and CoSaMP (Needell and Tropp, 2009) do this each round with least squares and a known number
+  of nonzeros. They are close to Pandora's deterministic sliding-window variant (see the
+  ablations).
+- Accepting only an exact fit on chosen columns is the rule of information-set decoding
+  (Prange, 1962), over finite fields.
+
+A literature search did not find the combination for noiseless compressed sensing: basis-pursuit
+vessels of about `1.5 n` columns, biased by decaying scores over many rounds, and stopped by
+exact-fit certificates.
 
 ## Limits
 
@@ -183,21 +243,40 @@ with exact-fit stopping certificates, was not found in a literature search.
   picked the same inputs as lasso. It helps when there are fewer measurements than unknowns.
 - It costs more linear programs than L1: on 40 × 200 problems, about 30 at 10 nonzeros and 100
   at 12, small ones, against L1's one.
+- Given the same budget and certificate, restarted ISD matches Pandora at 10 nonzeros
+  (40 × 200); the lead remains at 12 and 14 (see Same budget, same certificate).
+- Pandora is randomized. On the same 100 problems a second seed gave counts within one of the
+  first (98 / 90–91 / 53 / 25 / 2–3 at 8 to 17 nonzeros), but up to 14 individual problems
+  changed outcome between the two seeds.
 - At a fixed budget of 200 vessels the advantage fades by 1000 unknowns (see Larger problems).
-- Independent replication is the next step this needs.
+- A re-implementation written from this README alone, sharing no code with the package,
+  reproduced the 40 × 200 results: its counts were within or above the intervals here (29% against
+  21% at 14 nonzeros, over 400 problems), and its linear-program costs matched. Replication by
+  someone outside the project is still the next step.
 
 ## Run it
 
 ```bash
 python -m venv .venv && .venv/bin/pip install -e '.[test,bench]'
-.venv/bin/python -m pytest -q                         # 9 tests
+.venv/bin/python -m pytest -q                         # 31 tests
 .venv/bin/python -m benchmarks.run phase              # phase diagram
 .venv/bin/python -m benchmarks.run ensembles          # four matrix kinds
 .venv/bin/python -m benchmarks.validate baselines     # seven methods, 95% intervals
 .venv/bin/python -m benchmarks.validate ablations     # what each part contributes
+.venv/bin/python -m benchmarks.validate budget        # ISD with the same budget and certificate
+.venv/bin/python -m benchmarks.validate isdtune       # ISD's threshold, tuned
+.venv/bin/python -m benchmarks.validate certificates  # wrong answers returned; a second seed
 .venv/bin/python -m benchmarks.measurements           # m50 curves
 .venv/bin/python -m benchmarks.ranking                # support inside the top of each ranking
 .venv/bin/python -m benchmarks.figures                # figures/ from results/
+```
+
+To test a variant of your own, `benchmarks.trial` runs it against Pandora on fixed tuning
+problems, then, only if it wins there, on seeds no earlier trial used. The verdict is a paired
+sign test, each problem has a time limit, and every trial is logged to `results/ledger.jsonl`:
+
+```bash
+.venv/bin/python -m benchmarks.trial my_variant.py:solve --k 11 14   # solve(X, y, rng) -> w or None
 ```
 
 Seeds are fixed in each script, so reruns reproduce the published numbers.

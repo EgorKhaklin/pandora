@@ -1,0 +1,7 @@
+budget baseline problems k=10: Pandora 90/100 [np.float64(82.6), np.float64(94.5)] vs ISD restarts 89/100 [np.float64(81.4), np.float64(93.7)] | only Pandora 6, only ISD 5, p=1.0000 | LPs 34 vs 41, 0.21s vs 0.66s
+budget baseline problems k=12: Pandora 56/100 [np.float64(46.2), np.float64(65.3)] vs ISD restarts 46/100 [np.float64(36.6), np.float64(55.7)] | only Pandora 18, only ISD 8, p=0.0755 | LPs 107 vs 126, 0.64s vs 2.02s
+budget baseline problems k=14: Pandora 21/100 [np.float64(14.2), np.float64(30.0)] vs ISD restarts 10/100 [np.float64(5.5), np.float64(17.4)] | only Pandora 12, only ISD 1, p=0.0034 | LPs 168 vs 181, 1.12s vs 3.21s
+budget fresh problems k=10: Pandora 92/100 [np.float64(85.0), np.float64(95.9)] vs ISD restarts 90/100 [np.float64(82.6), np.float64(94.5)] | only Pandora 6, only ISD 4, p=0.7539 | LPs 33 vs 41, 0.25s vs 0.78s
+budget fresh problems k=12: Pandora 68/100 [np.float64(58.3), np.float64(76.3)] vs ISD restarts 52/100 [np.float64(42.3), np.float64(61.5)] | only Pandora 23, only ISD 7, p=0.0052 | LPs 83 vs 118, 0.60s vs 2.29s
+budget fresh problems k=14: Pandora 26/100 [np.float64(18.4), np.float64(35.4)] vs ISD restarts 9/100 [np.float64(4.8), np.float64(16.2)] | only Pandora 18, only ISD 1, p=0.0001 | LPs 161 vs 183, 1.05s vs 3.17s
+EXIT 0

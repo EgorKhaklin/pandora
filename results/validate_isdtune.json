@@ -1,0 +1,90 @@
+[
+ {
+  "tuning": {
+   "beta 1.5, iters 4": [
+    33,
+    14,
+    2
+   ],
+   "beta 1.5, iters 8": [
+    33,
+    15,
+    2
+   ],
+   "beta 1.5, iters 16": [
+    33,
+    15,
+    2
+   ],
+   "beta 2, iters 4": [
+    28,
+    17,
+    4
+   ],
+   "beta 2, iters 8": [
+    28,
+    17,
+    4
+   ],
+   "beta 2, iters 16": [
+    28,
+    17,
+    4
+   ],
+   "beta 3, iters 4": [
+    28,
+    16,
+    3
+   ],
+   "beta 3, iters 8": [
+    28,
+    16,
+    3
+   ],
+   "beta 3, iters 16": [
+    28,
+    16,
+    3
+   ],
+   "beta 5, iters 4": [
+    26,
+    14,
+    2
+   ],
+   "beta 5, iters 8": [
+    26,
+    14,
+    2
+   ],
+   "beta 5, iters 16": [
+    26,
+    14,
+    2
+   ]
+  },
+  "best": {
+   "beta": 1.5,
+   "iters": 8
+  },
+  "test": [
+   {
+    "k": 10,
+    "trials": 100,
+    "default (beta 2, 8 iters)": 68,
+    "tuned": 72
+   },
+   {
+    "k": 12,
+    "trials": 100,
+    "default (beta 2, 8 iters)": 33,
+    "tuned": 27
+   },
+   {
+    "k": 14,
+    "trials": 100,
+    "default (beta 2, 8 iters)": 8,
+    "tuned": 9
+   }
+  ]
+ }
+]
